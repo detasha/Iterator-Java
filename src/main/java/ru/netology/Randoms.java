@@ -11,7 +11,7 @@ public class Randoms implements Iterable<Integer> {
     public Randoms(int min, int max) {
         this.random = new Random();
         this.min = min;
-        this.max = max+1;
+        this.max = max;
     }
 
     @Override
@@ -25,7 +25,8 @@ public class Randoms implements Iterable<Integer> {
 
             @Override
             public Integer next() {
-                return new Random().nextInt();
+                int randomValue = min + random.nextInt((max - min) + 1);
+                return randomValue;
             }
         };
     }
